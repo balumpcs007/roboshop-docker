@@ -1,6 +1,7 @@
 services:
   mongodb:
-    image: mongodb:v1
+    build: ./mongodb
+    image: balumpcs007/mongodb:v1
     container_name: mongodb
     volumes:
       - mongodb:/data/db
@@ -13,7 +14,8 @@ services:
     depends_on:
     - mongodb
   mysql:
-    image: mysql:v1
+    build: ./mysql
+    image: balumpcs007/mysql:v1
     container_name: mysql
     volumes:
     - mysql:/var/lib/mysql
