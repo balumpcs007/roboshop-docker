@@ -9,7 +9,7 @@ services:
       context: ./catalogue
       dockerfile: Dockerfile
     image: catalogue:v1
-    container_name: catalogu
+    container_name: catalogue
     depends_on:
     - mongodb
   mysql:
