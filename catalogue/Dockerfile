@@ -13,8 +13,8 @@ RUN chown -R roboshop:roboshop /opt/server
 USER roboshop
 ENV MONGO=true \
      MONGO_URL="mongodb://mongodb:27017/catalogue"
- CMD ["node"]
- ENTRYPOINT ["server.js"]
+ CMD ["server.js"]
+ ENTRYPOINT ["node"]
 
 
 
