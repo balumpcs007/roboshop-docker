@@ -9,6 +9,10 @@ FROM node:20.19.5-alpine3.22
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
 COPY --from=build  /opt/server /opt/server
+EXPOSE 8080
+LABEL com.project:"roboshop" \
+      component:"catalogue" \
+      created_by:"balachandra"
 RUN chown -R roboshop:roboshop /opt/server
 USER roboshop
 ENV MONGO=true \
