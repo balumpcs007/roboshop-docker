@@ -7,7 +7,7 @@ RUN apk add --no-cache \
     linux-headers \
     pcre-dev
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt
+RUN pip3 install --prefix=/install -r requirements.txt
 
 
 # ===========================
