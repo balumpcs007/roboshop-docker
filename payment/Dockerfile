@@ -1,12 +1,16 @@
+# ===========================
+# Stage 1: Builder (Alpine)
+# ===========================
 FROM python:3.9.25-alpine3.21 AS builder
-EXPOSE 8080
 WORKDIR /opt/server
 # Build deps for uwsgi & friends
 RUN apk add --no-cache \
     build-base \
     linux-headers \
     pcre-dev
+# Only requirements first for caching
 COPY requirements.txt .
+# Install into /install (just like you did)
 RUN pip3 install --prefix=/install -r requirements.txt
 
 
@@ -34,6 +38,7 @@ ENV CART_HOST="cart" \
 
 USER roboshop
 CMD ["uwsgi", "--ini", "payment.ini"]
+
 
 
 
